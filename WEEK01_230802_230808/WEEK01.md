@@ -52,25 +52,25 @@
 - 비슷한 목적의 패턴을 모아서 함께 공부
 - 반드시 예제 코드 직접 작성
 
-## 1.1.1 싱글톤 패턴
+## 1.1.1 싱글톤 패턴 (생성)
 
 > 하나의 클래스에 오직 하나의 인스턴스만 가지는 패턴
 
 어떠한 클래스의 인스턴스가 오직 하나임을 보장ㅎ며, 이 인스턴스를 접근할 수 있는 전역적인 접촉점을 제공하는 패턴입니다. 즉, 프로그램 시작부터 종료시까지 어떤 클래스의 인스턴스가 메모리 상에 단 하나만 존재할 수 있게 하고, 이 인스턴스에 대해 어디에서나 접근할 수 있도록 하는 패턴
 
-### 싱글톤 패턴 고안 배경
+#### 싱글톤 패턴 고안 배경
 
 개발을 하다보면 어떤 클래스에 대해 단 하나의 인스턴스만을 갖도록 하는 것이 좋은 경우가 있습니다.
 
 예를 들어, 로그를 찍는(Logging) 객체라던가 쓰레드 풀, 윈도우 관리자 등 여러 객체를 관리하는 역할의 객체는 프로그램 내에서 단 하나의 인스턴스를 갖는 것이 바람직합니다.
 
-### 주요 사용 예시
+#### 주요 사용 예시
 
 데이터베이스 연결 모듈
 
-### 전역변수와는 어떻게 다른가?
+#### 전역변수와는 어떻게 다른가?
 
-### 단점
+#### 단점
 
 싱글톤 패턴은 TDD (Test Driven Development)를 할 때 걸림돌이 된다. TDD의 전제조건인 테스트가 서로 독립적이지 못하다는 문제가 있다. (단위테스트 X) 싱글톤으로 만들어진 객체는 각 테스트마다 독립적이지 못하기 때문이다.
 
@@ -86,7 +86,7 @@
 1. 상위 모듈은 하위 모듈에서 어떠한 것도 가져오지 않는다.
 2. 둘다 추상화에 의존, 세부사항에 의존하지 말아야 한다.
 
-### DI의 장단점
+#### DI의 장단점
 
 - 장점
 
@@ -97,7 +97,7 @@
   - 모듈이 더 분리되면서 클래스 수가 늘어남 > 복잡성 증가
   - 런타임 패널티 발생
 
-## 구현 방법
+### 구현 방법
 
 1. private 생성자만을 정의해 외부 클래스로부터 인스턴스 생성을 차단합니다.
 
@@ -148,7 +148,7 @@
 private inner static class를 두어 싱글톤 인스턴스를 갖게한다. SingletonHelper 클래스는 Singleton 클래스가 load될 때도 Load 되지 않다가 getInstance()가 호출되었을 때 비로소 JVM 메모리에 로드되고, 인스턴스를 생성하게 된다. 아울러 **synchronized를 사용하지 않기 때문에 성능 저하에 유리**하다.  
 실제로 Java 오픈소스 프로젝트의 코드를 살펴보면 이와 같은 방식으로 싱글톤을 사용하고 있는 것을 알 수 있다.
 
-## 1.1.2 팩토리 패턴
+## 1.1.2 팩토리 패턴 (생성)
 
 > 객체를 사용하는 코드에서 객체 생성을 떼어다 추상화한 패턴
 >
@@ -250,7 +250,7 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
 
 또한 getCoffee()를 static으로 정의했는데, 정적 메서드를 쓰면 인스턴스 없이 호출이 간으하여 메모리를 절약할 수 있고, 개별 인스턴스에 묶이지 않으며 클래스 내의 함수를 정의할 수 있는 장점이 있다.
 
-## 1.1.3 전략 패턴 (Strategy Pattern)
+## 1.1.3 전략 패턴 (Strategy Pattern) (행위)
 
 > 객체의 행위를 바꾸기 위해 이를 '직접' 수정하지 않고 전력이라고 하는 "캡슐화된 알고리즘"을 컨텍스트 안에서 바워주면서 상호 교체가 가능하도록 하는 패턴
 
@@ -377,7 +377,7 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
 
 이후 추가 페이 기능이 생기거나 수정해야 할 때 코드 수정이 매우 용이해진다
 
-## 1.1.4 옵저버 패턴
+## 1.1.4 옵저버 패턴 (행위)
 
 > 객체의 상태 변화를 관찰하는(전달받기를 기다리는) 옵저버(관찰자)들의 목록을 객체에 등록하여 상태 변화가 있을 때마다 notify를 통해 객체가 각 옵저버에게 통지하도록 하는 디자인 패턴
 >   >발행/구독 모델로 알려져있기도 하다.
@@ -526,7 +526,7 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
 
     */ 
 
-## 1.1.5 프록시 패턴
+## 1.1.5 프록시 패턴 (구조)
 >   대상 객체에 접근하기 전, 그 접근에 대한 흐름을 가로채 대상 객체 앞단의 인터페이스 역할을 하는 디자인 패턴
 
 #### 장점
@@ -540,6 +540,16 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
 2. 프록시 내부에서 객체 생성을 위해 스레드가 생성, 동기화가 구현되어야 하는 경우 성능이 저하될 수 있다.
 3. 로직이 난해해져 가독성이 떨어질 수 있다.
 
+#### 종류
+* **가상프록시**
+꼭 필요로 하는 시점까지 객체의 생성을 연기하고, 해당 객체가 생성된 것 처럼 동작하도록 만들고 싶을 때 사용하는 패턴이다. 프록시 클래스에서 작은 단위의 작업을 처리하고 리소스가 많이 요구되는 작업들이 필요할 경우만 주체 클래스를 사용하도록 구현한다.
+
+* **원격프록시**
+원격 객체에 대한 접근을 제어 로컬 환경에 존재하며, 원격 객체에 대한 대변자 역할을 하는 객체 서로 다른 주소 공간에 있는 객체에 대해 마치 같은 주소 공간에 있는 것 처럼 동작하게 하는 패턴이다.(예: Google Docs)
+
+* **보호프록시**
+주체 클래스에 대한 접근을 제어하기 위한 경우에 객체에 대한 접근 권한을 제어하거나 객체마다 접근 권한을 달리하고 싶을 경우 사용하는 패턴으로 프록시 클래스에서 클라이언트가 주체 클래스에 대한 접근을 허용할지 말지 결정하도록 할 수 있다.
+
 #### 활용
 1. 객체의 속성 변환 보완
 2. 데이터 검증, 캐싱, 로깅
@@ -547,58 +557,331 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
     └ 익명 사용자의 직접적인 서버의 접근을 차단하여 보안성 강화
 4. CloudFare : CDN 서비스로 프록시 서버 활용 (각 사용자가 인터넷에 접속하는 곳과 가까운 곳에 콘텐츠를 캐싱 or 배포하는 서버 네트워크로 콘텐츠 다운로드 시간을 줄일 수 있다) 
     1. DDOS 공격 방어 : 의심스러운 트래픽 & 사용자가 아닌 시스템을 통해 을 자동으로 차단하여 DDOS 공격으로부터 보호. 
-    2. HTTPS 구축 : 별도 인증서 설치 없이 좀더 쉽게 HTTPS 구축 가능
+    2. HTTPS 구축 : 별도 인증서 설치 없이 좀더 쉽게 HTTPS 구축 가능 
 
-    // Image.java
-    public interface Image {
-        public void displayImage();
+```
+// Image.java
+public interface Image {
+    public void displayImage();
+}
+// Real_Image.java
+public class Real_Image implements Image {
+	private String fileName;
+    
+    public Real_Image(String fileName) {
+    	this.fileName = fileName;
     }
-    // Real_Image.java
-    public class Real_Image implements Image {
-        private String fileName;
-        
-        public Real_Image(String fileName) {
-            this.fileName = fileName;
+    
+    private void loadFromDisk(String fileName) {
+    	System.out.println("로딩: " + fileName);
+    }
+    
+    @Override
+    public void displayImage() {
+        System.out.println("보여주기: " + fileName);
+    }
+}
+// Proxy_Image.java
+// Proxy : Real_Image 대신 Proxy_Image를 생성  
+public class Proxy_Image implements Image {
+    private String fileName;
+    private Real_Image realImage;
+    
+    public Proxy_Image(String fileName) {
+    	this.fileName = fileName;
+    }
+    
+    @Override
+    public void displayImage() {
+    	if (realImage == null) {
+        	realImage = new Real_Image(fileName);
         }
+        realImage.displayImage();
+    }
+}
+// Proxy_Pattern.javva
+public class Proxy_Pattern {
+    public static void main(String args[]) {
+        Image image1 = new Proxy_Image("test1.jpg);
+        Image image2 = new Proxy_Image("test2.jpg);
         
-        private void loadFromDisk(String fileName) {
-            System.out.println("로딩: " + fileName);
-        }
-        
-        @Override
-        public void displayImage() {
-            System.out.println("보여주기: " + fileName);
+        image1.displayImage();
+        image2.displayImage();
+    }
+}
+```
+
+## 1.1.6 이터레이터 패턴 (행위)
+>   컬렉션 구현 방법을 노출시키지 않으면서 그 집합체 안에 들어있는 모든 항목에 접근할 수 있는 방법을 제공해주는 패턴
+
+### SRP (Single Responsibility Principle)
+클래스는 단 하나의 변경이 되어야하고 여러개면 분해해야 한다 (클래스 단일 책임 원칙)
+코드를 변경할 만한 이유가 두 가지가 되면 그만큼 그 클래스를 나중에 고쳐야 할 가능성이 커지게 될 뿐 아니라, 디자인에 있어서 두 가지 부분이 동시에 영향이 미치게 된다.
+
+### 장점
+* 어떤 집합체(Aggregate)를 쓰는지가 중요하지 않아진다.
+* 집합체 클래스의 응집도를 높여준다.
+* 집합체 내에서 어떤 식으로 일이 처리되는지 알 필요 없이, 집합체 안에 들어있는 모든 항목에 접근 할 수 있게 해준다.
+* 모든 항목에 일일이 접근하는 작업을 컬렉션 객체가 아닌 이터레이터 객체에서 맡게 된다. 이렇게 하면, 집합체의 인터페이스 및 구현이 간단해질 뿐만 아니라, 집합체에서는 반복 작업에서 손을 떼고 원래 자신이 할 일에만 전념할 수 있다.
+
+### 단점
+* 단순한 순회를 구현하는 경우 클래스만 많아져 복잡도가 증가할 수 있다.
+* 속도면에서 불리하다
+
+### 구현
+```
+public class Book {
+    private String name;
+
+    public Book(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+// Aggregate object의 구현방법을 알지 않고 요소를 접근하려고 한다.
+// Aggregate object : 특정 object들을 배열, 리스트 등.. group형식으로 갖고있는 객체 
+// container 혹은 collection이라 불린다
+public interface Aggregate {
+
+    Iterator createIterator();
+}
+
+
+// 책을 보관하는 클래스로 aggregate의 구현체
+public class BookShelf implements Aggregate {
+    private Book[] books; // 책의 집합
+    private int last = 0; // 마지막 책이 꽂힌 위치
+
+    public BookShelf(int size) {
+        books = new Book[size];
+    }
+
+    public Book getBook(int index) {
+        return books[index];
+    }
+
+    public int getLength() {
+        return last;
+    }
+
+    // 책꽂이에 책을 꽂는다
+    public void appendBook(Book book) {
+        if (last < books.length) {
+            this.books[last] = book;
+            last++;
+        } else {
+            System.out.println("책꽂이가 꽉 찼습니다!");
         }
     }
-    // Proxy_Image.java
-    public class Proxy_Image implements Image {
-        private String fileName;
-        private Real_Image realImage;
-        
-        public Proxy_Image(String fileName) {
-            this.fileName = fileName;
-        }
-        
-        @Override
-        public void displayImage() {
-            if (realImage == null) {
-                realImage = new Real_Image(fileName);
-            }
-            realImage.displayImage();
+
+    // Iterator를 생성한다
+    @Override
+    public Iterator createIterator() {
+        return new BookShelfIterator(this);
+    }
+}
+
+// iterator 구현
+// hasnext(), next() 구현
+// iterator 인터페이스 상속
+public class BookShelfIterator implements Iterator<Book> {
+    private BookShelf bookShelf; // 검색을 수행할 책꽂이
+    private int index = 0; // 현재 처리할 책의 위치
+
+    public BookShelfIterator(BookShelf bookShelf) {
+        this.bookShelf = bookShelf;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return index < bookShelf.getLength();
+    }
+
+    @Override
+    public Book next() {
+        Book book = bookShelf.getBook(index);
+        index++;
+        return book;
+    }
+}
+
+    public static void main(String[] args) {
+        BookShelf bookShelf = new BookShelf(10);
+
+        Book book1 = new Book("문학동네");
+        Book book2 = new Book("너무 한낮의 연애");
+        Book book3 = new Book("늑대의 문장");
+
+        bookShelf.appendBook(book1);
+        bookShelf.appendBook(book2);
+        bookShelf.appendBook(book3);
+
+        System.out.println("현재 꽂혀있는 책 : " + bookShelf.getLength() + "권");
+
+        Iterator it = bookShelf.createIterator();
+        while (it.hasNext()) {
+            Book book = (Book) it.next();
+            System.out.println(book.getName());
         }
     }
-    // Proxy_Pattern.javva
-    public class Proxy_Pattern {
-        public static void main(String args[]) {
-            Image image1 = new Proxy_Image("test1.jpg);
-            Image image2 = new Proxy_Image("test2.jpg);
-            
-            image1.displayImage();
-            image2.displayImage();
-        }
-    }
+
+    /*
+    >>>현재 꽂혀있는 책 : 3권
+    >>>문학동네
+    >>>너무 한낮의 연애
+    >>>늑대의 문장
+    */
+```
+
 
 <https://velog.io/@newtownboy/%EB%94%94%EC%9E%90%EC%9D%B8%ED%8C%A8%ED%84%B4-%ED%94%84%EB%A1%9D%EC%8B%9C%ED%8C%A8%ED%84%B4Proxy-Pattern>
+
+## 1.1.7 노출모듈 패턴
+>   즉시 실행 함수를 통해 private, public 같은 접근 제어자를 만드는 패턴
+
+### 사용 이유
+자바스크립트는 접근 제어자가 존재하지 않고 전역 범위에서 스크립트가 실행되기 때문에 노출모듈 패턴을 통해 private와 public 접근 제어자를 구현
+→ 전역 범위에서 실행되는 프로그램은 내부 어플리케이션과 종속된 라이브러리 코드의 데이터들로 인해 충돌이 발생 할 수 있음.
+
+** 즉시 실행함수    
+```
+(function () {
+    // statements
+})()
+```
+
+
+### 구현
+```
+const pukuba = (() => {
+    const a = 1
+    const b = () => 2
+    const public = {
+        c : 2, 
+        d : () => 3
+    }
+    return public 
+})() 
+console.log(pukuba)
+console.log(pukuba.a)
+// { c: 2, d: [Function: d] }
+// undefined
+```
+
+#### 장점
+* 개발자에게 깔끔한 접근 방법을 제공
+* private 데이터 제공
+* 클로저를 통해 함수와 변수를 지역화
+* 명시적으로 public 메소드와 변수를 제공해 명시성을 높임
+
+#### 단점
+* private 메소드 접근할 방법이 없음 (그래서 테스트 불가란 얘기를 하는데 private은 테스트 할지 안할지 고민해봐야)
+* private 메소드에 대해 함수 확장하는데 어려움이 있음
+* private 메소드를 참조하는 public 메소드를 수정하기 어려움
+
+## 1.1.8 MVC 패턴
+
+>   MVC란 Model-View-Controller의 약자로 애플리케이션을 세 가지 역할로 구분한 개발 방법론
+
+#### Model
+: 어플리케이션의 데이터인 DB, 상수, 변수
+* 예를 들어 사각형 모양의 박스 위치 정보, 글자 내용, 글자 위치, 글자 포맷 등
+* 데이터 추출, 저장, 삭제, 업데이트 등의 역할을 수행    
+
+**<규칙>**
+* 사용자가 편집하기를 원하는 모든 데이터를 가지고 있어야
+* View나 Controller에 대헤서 어떤 정보도 알지 말아야 
+* 변경이 일어나면, 변경 통지에 대한 처리방법을 구현해야
+
+#### View
+: 사용자에게 보여주는 화면 (UI) 
+* MVC에 여러개의 View가 존재할 수 있음
+
+**<규칙>**
+* Model이 가지고 있는 정보를 따로 저장해서는 안됨
+* Model이나 Controller와 같이 다른 구성요소들을 몰라야
+* 변경이 일어나면 변경 통지에 대한 처리방법을 구현해야
+
+#### Controller
+: Model과 View 사이를 이어주는 인터페이스 역할로 Model이 데이터를 어떻게 처리할지 알려줌
+* Model과 View의 생명주기도 관리
+* Model과 View의 변경통지를 받으면 이를 해석하여 각각의 구성요소에 해당 내용을 알려줌
+* Controller가 여러개의 View를 선택할 수 있음
+
+**<규칙>**
+* Model이나 View에 대해서 알고 있어야 
+* Model이나 View의 변경을 모니터링 해야 
+
+#### 장점
+* 기능별로 코드를 분리하여 하나의 파일에 코드가 모이는 것을 방지하여 가독성과 코드의 재사용이 증가
+* 각 구성요소들을 독립시켜 협업을 할 때 맡은 부분의 개발에만 집중할 수 있어 개발의 효율성을 높여줌 (분업 가능)
+* 개발 후에도 유지보수성과 확장성이 보장
+* Model과 View가 다른 컴포넌트들에 종속되지 않아 애플리케이션의 확장성, 유연성에 유리
+
+#### 단점
+* Massive-View-Controller : Model과 View사이에는 Controller를 통해 소통을 이루기에 의존성이 완전히 분리될 수 없음,그래서 복잡한 대규모 프로그램의 경우 다수의 View와 Model이 Controller를 통해 연결되기 때문에 컨트롤러가 불필요하게 커지는 현상 
+
+#### 활용
+* Google의 Angular JS
+* PHP의 CODEIGNITER
+* Python의 django
+* Facebook의 React : 가상 DOM, 불변성
+
+#### Model 1 vs Model 2
+* **Model 1** : controller 영역에 view 영역을 같이 구현하는 방식
+사용자의 요청을 JSP(view)가 모두 처리. 요청을 받은 JSP는 JavaBean Servie Class를 사용하여 웹브라우저 사용자가 요청한 작업을 처리하고 그 결과를 출력. 빠르고 쉽게 개발 가능하나 JSP 파일이 너무 비대해지며 Controller와 View가 혼재하여 향후 유지보수가 어려움   
+
+* **Model 2** : controller 영역에 view 영역을 구분하는 방식
+웹브라우저 사용자의 요청을 서블릿(controller)이 받고 서블릿은 해당 요청으로 View로 보여줄 것인지 Model로 보낼 것인지를 판단하여 전송. 또한 HTML 소스와 JAVA소스를 분리해놓았기 때문에 모델 1 방식에 비해 확장시키기도 쉽고 유지보수 또한 쉬움. 하지만 개발난이도가 높음
+
+<https://velog.io/@seongwon97/MVC-%ED%8C%A8%ED%84%B4%EC%9D%B4%EB%9E%80>
+
+## 1.1.9 MVP 패턴
+
+>   MVC 패턴으로부터 파생되어 Controller → Presenter로 교체된 패턴
+
+#### Presenter
+: Model과 View 사이를 이어주지만, Controller와 다르게 View에 직접 연결되는 대신 인터페이스를 통해 상호작용
+*  액티비티나 프래그먼트와 같은 view 구성요소는 이 인터페이스를 구현하고 원하는 방식으로 데이터를 랜더링
+* Model을 조작할 뿐만 아니라 View를 업데이트
+* View와 1 : 1 의존관계
+
+#### 장점
+* MVP 패턴은 MVC 패턴의 단점이었던 View와 Model의 의존성을 해결
+
+#### 단점
+* View와 Presenter 사이의 의존성이 높은 가지게 되며 어플리케이션이 복잡해질수록 심화
+
+
+
+## 1.1.10 MVVM 패턴
+>   MVC 패턴으로부터 파생되어 Controller → View Model로 교체된 패턴
+
+
+#### ViewModel
+* View는 ViewModel에 관한 참조를 가지고 있지만, ViewModel은 View에 관한 정보를 모름
+* View와 ViewModel사이의 n:1의 의존관계가 생기며 다수의 View는 하나의 ViewModel에 매핑될 수 있음 > View에 독립적!
+* 데이터 바인딩(화면에 보이는 데이터와 웹 브라우저의 메모리 데이터 일치)을 이용한다면 View와 ViewModel 사이의 의존성을 없앨 수 있음
+
+
+#### 장점
+* View와 Model 사이의 의존성이 없다
+* Command 패턴과 Data Binding을 사용하여 View와 View Model 사이의 의존성 또한 없음!
+* 단위 테스팅이 쉬움
+
+#### 단점
+* View Model 설계 난이도가 높음
+
+
+#### 활용
+* Vue.js : Reactivity 가 특징인 프론트엔드 프레임워크
+함수를 사용하지 않고 값 대입만으로 변수가 변경되며 양방향 바인딩, html을 토대로 컴포넌트를 구축할 수 있음
+
+
 
 > this is block quote
 >
