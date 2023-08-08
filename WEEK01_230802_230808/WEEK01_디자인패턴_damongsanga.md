@@ -6,8 +6,6 @@
 <hr>
 ## 1.1 디자인 패턴
 
-참조 url : <https://readystory.tistory.com/114>
-
 #### 디자인 패턴이란?
 
 프로그램을 설계할 때 발생했던 문제점을 객체 간의 상호 관계 등을 이용하여 해결할 수 있는 하나의 규약 형태로 만들어 놓은 것
@@ -51,6 +49,8 @@
 - 패턴들 간의 관련성 파악
 - 비슷한 목적의 패턴을 모아서 함께 공부
 - 반드시 예제 코드 직접 작성
+
+참조 url : <https://readystory.tistory.com/114>
 
 ## 1.1.1 싱글톤 패턴 (생성)
 
@@ -250,6 +250,8 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
 
 또한 getCoffee()를 static으로 정의했는데, 정적 메서드를 쓰면 인스턴스 없이 호출이 간으하여 메모리를 절약할 수 있고, 개별 인스턴스에 묶이지 않으며 클래스 내의 함수를 정의할 수 있는 장점이 있다.
 
+참조 : <https://readystory.tistory.com/116> 
+
 ## 1.1.3 전략 패턴 (Strategy Pattern) (행위)
 
 > 객체의 행위를 바꾸기 위해 이를 '직접' 수정하지 않고 전력이라고 하는 "캡슐화된 알고리즘"을 컨텍스트 안에서 바워주면서 상호 교체가 가능하도록 하는 패턴
@@ -376,6 +378,8 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
     */
 
 이후 추가 페이 기능이 생기거나 수정해야 할 때 코드 수정이 매우 용이해진다
+
+참조 : <https://victorydntmd.tistory.com/292>
 
 ## 1.1.4 옵저버 패턴 (행위)
 
@@ -525,6 +529,8 @@ Coffee라는 상위 클래스가 뼈대를 결정, 하위 클래스인 Latte가 
     d:: got message >> Hell No!!
 
     */ 
+
+
 
 ## 1.1.5 프록시 패턴 (구조)
 >   대상 객체에 접근하기 전, 그 접근에 대한 흐름을 가로채 대상 객체 앞단의 인터페이스 역할을 하는 디자인 패턴
@@ -783,6 +789,8 @@ console.log(pukuba.a)
 * private 메소드에 대해 함수 확장하는데 어려움이 있음
 * private 메소드를 참조하는 public 메소드를 수정하기 어려움
 
+참조 : <https://velog.io/@juijeong8324/Design-Pattern-8>
+
 ## 1.1.8 MVC 패턴
 
 >   MVC란 Model-View-Controller의 약자로 애플리케이션을 세 가지 역할로 구분한 개발 방법론
@@ -838,7 +846,7 @@ console.log(pukuba.a)
 * **Model 2** : controller 영역에 view 영역을 구분하는 방식
 웹브라우저 사용자의 요청을 서블릿(controller)이 받고 서블릿은 해당 요청으로 View로 보여줄 것인지 Model로 보낼 것인지를 판단하여 전송. 또한 HTML 소스와 JAVA소스를 분리해놓았기 때문에 모델 1 방식에 비해 확장시키기도 쉽고 유지보수 또한 쉬움. 하지만 개발난이도가 높음
 
-<https://velog.io/@seongwon97/MVC-%ED%8C%A8%ED%84%B4%EC%9D%B4%EB%9E%80>
+참조 : <https://velog.io/@seongwon97/MVC-%ED%8C%A8%ED%84%B4%EC%9D%B4%EB%9E%80>
 
 ## 1.1.9 MVP 패턴
 
@@ -855,6 +863,8 @@ console.log(pukuba.a)
 
 #### 단점
 * View와 Presenter 사이의 의존성이 높은 가지게 되며 어플리케이션이 복잡해질수록 심화
+
+참조 : <https://beomy.tistory.com/43>
 
 
 
@@ -880,3 +890,6 @@ console.log(pukuba.a)
 #### 활용
 * Vue.js : Reactivity 가 특징인 프론트엔드 프레임워크
 함수를 사용하지 않고 값 대입만으로 변수가 변경되며 양방향 바인딩, html을 토대로 컴포넌트를 구축할 수 있음
+
+참조 : <https://beomy.tistory.com/43>
+
