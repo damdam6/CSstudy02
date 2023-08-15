@@ -11,7 +11,7 @@
 | :---: | :---: | :---: | :---: | :---: |
 | GitHub | [damdam6](https://github.com/damdam6) | [LUVENOV](https://github.com/LUVENOV) | [leeje0506](https://github.com/leeje0506) | [Damongsanga](https://github.com/Damongsanga) |
 | Week01</br>(230808) |✅|✅|✅|💸|
-| Week02</br>(230815) |  |  |  |  |
+| Week02</br>(230815) |✅|✅|✅|✅|
 | Week03</br>(230822) |  |  |  |  |
 | Week04</br>(230829) |  |  |  |  |
 </br>
