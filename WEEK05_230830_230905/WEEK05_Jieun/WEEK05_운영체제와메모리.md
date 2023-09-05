@@ -64,9 +64,6 @@ I/O 디바이스들인 마우스, 키보드와 컴퓨터 간에 데이터를 주
 유저 프로그램이 운영 체제의 서비스를 받기 위해 커널 함수를 호출할 때 쓰인다. 이 과정을 통해 컴퓨터 자원에 대한 직접 접근을 차단하고, 프로그램을 다른 프로그램으로부터 보호할 수 있다.
     
     시스템콜이 작동될 때 Modebit을 참고해서 유저모드와 커널 모드를 구분한다. modebit은 1 또는 0의 값을 가지는 플래그 변수. (0 = 커널 모드, 1 = 유저 모드)
-    
-
-![https://user-images.githubusercontent.com/100582309/219598001-547d330c-e0a4-4911-9a5e-0a89bd7027c2.png](https://user-images.githubusercontent.com/100582309/219598001-547d330c-e0a4-4911-9a5e-0a89bd7027c2.png)
 
 - 유저 모드
 : 유저가 접근할 수 있는 영역이 제한적임. 컴퓨터 자원에 함부로 침범하지 못 하는 모드
@@ -87,8 +84,6 @@ I/O 디바이스들인 마우스, 키보드와 컴퓨터 간에 데이터를 주
 ## 컴퓨터의 요소
 
 CPU, DMA 컨트롤러, 메모리, 타이머, 디바이스 컨트롤러 등
-
-![https://user-images.githubusercontent.com/100582309/219598061-2963092f-bb03-4616-9330-a19c9257936f.png](https://user-images.githubusercontent.com/100582309/219598061-2963092f-bb03-4616-9330-a19c9257936f.png)
 
 1. CPU(Central Processing Unit) : 프로그램의 연산을 실행, 처리하는 곳
 2. DMA 컨트롤러 : I/O 디바이스가 메모리에 직접 접근할 수 있도록 하는 장치
@@ -182,7 +177,6 @@ CPU, DMA 컨트롤러, 메모리, 타이머, 디바이스 컨트롤러 등
 
 : 해당 데이터가 캐시에 없다면 주 메모리로 가서 데이터를 찾아오는 것
 
-![https://user-images.githubusercontent.com/100582309/219598123-95c7d116-7b23-4538-8bd0-1bfc0fbd84f0.png](https://user-images.githubusercontent.com/100582309/219598123-95c7d116-7b23-4538-8bd0-1bfc0fbd84f0.png)
 
 ## Cache Mapping
 
@@ -214,8 +208,6 @@ CPU, DMA 컨트롤러, 메모리, 타이머, 디바이스 컨트롤러 등
     - HTML5 지원 브라우저에서만 가용 가능
 
 ## 데이터베이스의 캐싱 계층
-
-![https://user-images.githubusercontent.com/100582309/219598188-9a4c67d8-d3cb-48cc-93e7-a80a68f40eb0.png](https://user-images.githubusercontent.com/100582309/219598188-9a4c67d8-d3cb-48cc-93e7-a80a68f40eb0.png)
 
 데이터베이스 위에 레디스 데이터 베이스 게층을 ‘캐싱 계층’으로 두어 성능을 향상시키기도 함
 
