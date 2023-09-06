@@ -1,0 +1,2 @@
+:white_medium_small_square: 2.4 IP 주소
+:white_medium_small_square:  2.5 HTTP(~p130)
